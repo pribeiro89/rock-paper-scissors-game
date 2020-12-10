@@ -1,0 +1,72 @@
+.app-container {
+  padding: 2rem;
+}
+
+.header {
+  align-items: center;
+  border: 3px solid hsl(217, 16%, 45%);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  width: 650px;
+  max-width: 100%;
+}
+
+.score-container {
+  background-color:white;
+  border-radius: 10px;
+  padding: 1rem 3rem;
+  text-align: center;
+
+  h3 {
+    color: hsl(229, 64%, 46%);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .score {
+    font-size: 4rem;
+    line-height: 1;
+    color: hsl(229, 15%, 40%);
+    font-weight: 700;
+  }
+}
+
+.rules {
+  background-color: transparent;
+  border: 2px solid hsl(216, 15%, 56%);
+  border-radius: 8px;
+  color: hsl(215, 25%, 87%);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.60rem 1.9rem;
+  position: absolute;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  text-transform: uppercase;
+  right: 0;
+  bottom: 0;
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
