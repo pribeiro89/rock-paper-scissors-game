@@ -1,43 +1,42 @@
 .game {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // height: 100vh;
-    // position: relative;
-    padding: 100px 0;
-
-    .choice-wrapper {
-        position: relative;
-    }
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // height: 100vh;
+  // position: relative;
+  
+  .choice-wrapper {
+    position: relative;
+    margin: 100px 0;
+    
     .bg-img--pentagon {
-        position: relative;
-        z-index: -10;
+      position: relative;
+      z-index: -10;
     }
-
+    
     .choice-btn {
-        position: absolute;
-
-        &--lizard {
-            left: 0;
-            bottom: -70px;
-        }
-        &--paper {
-            right: -70px;
-            top: 50px;
-        }
-        &--rock {
-            right: 0;
-            bottom: -70px;
-        }
-        &--scissors {
-            top: -70px;
-            left: 100px;
-        }
-        &--spock {
-            left: -70px;
-            top: 50px;
-        }
+      position: absolute;
+      
+      &--lizard {
+        left: 0;
+        bottom: -70px;
+      }
+      &--paper {
+        right: -70px;
+        top: 50px;
+      }
+      &--rock {
+        right: 0;
+        bottom: -70px;
+      }
+      &--scissors {
+        top: -70px;
+        left: 100px;
+      }
+      &--spock {
+        left: -70px;
+        top: 50px;
+      }
     }
-
+  }
 }

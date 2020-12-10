@@ -15,7 +15,7 @@ const App = () => {
         </div>
       </header>
       <main>
-        <Game />
+        <Game selectedGame={'advanced'} />
         <Rules />
       </main>
     </div>
