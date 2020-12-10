@@ -1,0 +1,115 @@
+.rules-btn {
+  background-color: transparent;
+  border: 2px solid hsl(216, 15%, 56%);
+  border-radius: 8px;
+  color: hsl(215, 25%, 87%);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.60rem 1.9rem;
+  position: absolute;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+  text-transform: uppercase;
+  right: 0;
+  bottom: 0;
+}
+
+#rules-modal-container {
+  .rules-modal-backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    .rules-modal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      z-index: 10;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      padding: 2rem;
+
+      .rules-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        .rules-modal-title {
+          margin: 0;
+          text-transform: uppercase;
+          font-size: 2rem;
+          color: hsl(229, 25%, 31%);
+          line-height: 1;
+        }
+
+        .rules-modal-close {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;
+          border: none;
+          padding: 0.25rem;
+          margin-right: -0.25rem;
+        }
+      }
+
+        .rules-modal-content {
+          margin: 1rem 0;
+        }
+    }
+  }
+}
+
+@keyframes unfoldIn {
+  0% {
+    transform:scaleY(.005) scaleX(0);
+  }
+  50% {
+    transform:scaleY(.005) scaleX(1);
+  }
+  100% {
+    transform:scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes unfoldOut {
+  0% {
+    transform:scaleY(1) scaleX(1);
+  }
+  50% {
+    transform:scaleY(.005) scaleX(1);
+  }
+  100% {
+    transform:scaleY(.005) scaleX(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform:scale(0);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform:scale(1);
+  }
+  100% {
+    transform:scale(0);
+  }
+}

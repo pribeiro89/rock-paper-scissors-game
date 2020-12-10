@@ -1,8 +1,10 @@
+import React from 'react';
 import './App.scss';
 import logo from './assets/logo-bonus.svg';
 import Game from './components/Game';
+import Rules from './components/Rules';
 
-function App() {
+const App = () => {
   return (
     <div className="app-container">
       <header className="header">
@@ -14,7 +16,7 @@ function App() {
       </header>
       <main>
         <Game />
-        <button className="rules">Rules</button>
+        <Rules />
       </main>
     </div>
   );
