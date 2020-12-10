@@ -16,26 +16,24 @@
   bottom: 0;
 }
 
-#rules-modal-container {
-  .rules-modal-backdrop {
+#rules-modal-container { 
+  .rules-modal-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.25);
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
+    z-index: 10;
     top: 0;
-    bottom: 0;
-    right: 0;
     left: 0;
+    transform:scale(0);
 
     .rules-modal {
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: fixed;
-      z-index: 10;
       background-color: #fff;
       border-radius: 0.5rem;
       padding: 2rem;
@@ -70,6 +68,18 @@
         }
     }
   }
+
+  &.rules-modal--active {
+    .rules-modal-wrapper {
+      transform: scaleY(.01) scaleX(0);
+      animation: unfoldIn .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      
+      .rules-modal {
+        transform:scale(0);
+        animation: zoomIn .5s .6s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+  }
 }
 
 @keyframes unfoldIn {
@@ -84,32 +94,11 @@
   }
 }
 
-@keyframes unfoldOut {
-  0% {
-    transform:scaleY(1) scaleX(1);
-  }
-  50% {
-    transform:scaleY(.005) scaleX(1);
-  }
-  100% {
-    transform:scaleY(.005) scaleX(0);
-  }
-}
-
 @keyframes zoomIn {
   0% {
     transform:scale(0);
   }
   100% {
     transform:scale(1);
-  }
-}
-
-@keyframes zoomOut {
-  0% {
-    transform:scale(1);
-  }
-  100% {
-    transform:scale(0);
   }
 }

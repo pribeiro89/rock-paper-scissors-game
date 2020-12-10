@@ -14,30 +14,31 @@ const Rules = () => {
       >
         Rules
       </button>
-      {isRulesModalOpen && (
-        <div id="rules-modal-container">
-          <div className="rules-modal-backdrop">
-            <div className="rules-modal">
-              <div className="rules-modal-header">
-                <h2 className="rules-modal-title">Rules</h2>
-                <button
-                  className="rules-modal-close"
-                  onClick={() => setIsRulesModalOpen(false)}
-                >
-                  <IconClose />
-                </button>
-              </div>
-              <div className="rules-modal-content">
-                <img
-                  src={AdvancedRules}
-                  alt="advanced game rules"
-                  className="rules-img--advanced"
-                />
-              </div>
+      <div
+        id="rules-modal-container"
+        className={isRulesModalOpen ? 'rules-modal--active' : ''}
+      >
+        <div className="rules-modal-wrapper">
+          <div className="rules-modal">
+            <div className="rules-modal-header">
+              <h2 className="rules-modal-title">Rules</h2>
+              <button
+                className="rules-modal-close"
+                onClick={() => setIsRulesModalOpen(false)}
+              >
+                <IconClose />
+              </button>
+            </div>
+            <div className="rules-modal-content">
+              <img
+                src={AdvancedRules}
+                alt="advanced game rules"
+                className="rules-img--advanced"
+              />
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   )
 }
