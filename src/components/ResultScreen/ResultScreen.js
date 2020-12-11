@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './ResultScreen.scss';
 import Choice from '../Choice/Choice';
+import { ScoreContext } from '../../context/ScoreContext';
 
 const calculateScore = (choices, userPick, housePick) => {
   const userPickIndex = choices.findIndex((choice) => choice === userPick);
@@ -28,6 +29,7 @@ const calculateScore = (choices, userPick, housePick) => {
     }
   }
 
+  // Alternative calculation
   // switch (userPick) {
   //   case 'paper':
   //     return housePick === 'rock' || housePick === 'spock' ? 1 : -1;
@@ -49,22 +51,20 @@ const calculateScore = (choices, userPick, housePick) => {
 
 const ResultScreen = ({ gameChoices, userPick, resetGame }) => {
   const [housePick, setHousePick] = useState('');
-  const [score, setScore] = useState(null);
+  const [currentScore, setCurrentScore] = useState(null);
+  const [score, setScore] = useContext(ScoreContext);
+
 
   useEffect(() => {
-    const timer = setTimeout(() => setHousePick(
-      gameChoices[Math.floor(Math.random() * gameChoices.length + 1)]
-    ), 2000);
-    return () => {
-      clearTimeout(timer);
-    }
-  }, [gameChoices]);
+    setTimeout(() => {
+      const randomChoice = gameChoices[Math.floor(Math.random() * gameChoices.length)];
+      setHousePick(randomChoice);
 
-  useEffect(() => {
-    if (housePick) {
-      setScore(calculateScore(gameChoices, userPick, housePick));
-    }
-  }, [gameChoices, userPick, housePick]);
+      const gameScore = calculateScore(gameChoices, userPick, randomChoice);
+      setCurrentScore(gameScore);
+      setScore(score + gameScore);
+    }, 2000);
+  }, []);
 
   return (
     <div className="result">
@@ -85,12 +85,12 @@ const ResultScreen = ({ gameChoices, userPick, resetGame }) => {
           )}
         </div>
       </div>
-      {score !== null && (
+      {currentScore !== null && (
         <div className="result__box">
           <h2 className="result__title">
-            {score === 0 && 'You Tied'}
-            {score === 1 && 'You Win'}
-            {score === -1 && 'You Lose'}
+            {currentScore === 0 && 'You Tied'}
+            {currentScore === 1 && 'You Win'}
+            {currentScore === -1 && 'You Lose'}
           </h2>
           <button className="play-again" onClick={resetGame}>
             Play Again

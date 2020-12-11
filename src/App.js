@@ -1,24 +1,21 @@
 import React from 'react';
 import './App.scss';
-import logo from './assets/logo-bonus.svg';
+import { ScoreContextProvider } from './context/ScoreContext';
 import Game from './components/Game/Game';
 import Rules from './components/Rules/Rules';
+import Header from './components/Header/Header';
 
 const App = () => {
   return (
-    <div className="app-container">
-      <header className="header">
-        <img src={logo} alt="Logo" className="logo" />
-        <div className="score-container">
-          <h3>Score</h3>
-          <span className="score">12</span>
-        </div>
-      </header>
-      <main>
-        <Game selectedGame={'advanced'} />
-        <Rules />
-      </main>
-    </div>
+    <ScoreContextProvider>
+      <div className="app">
+        <Header />
+        <main>
+          <Game selectedGame={'advanced'} />
+          <Rules />
+        </main>
+      </div>
+    </ScoreContextProvider>
   );
 }
 
