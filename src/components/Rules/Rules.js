@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Rules.scss';
-import AdvancedRules from './../assets/image-rules-bonus.svg';
-import { ReactComponent as IconClose } from './../assets/icon-close.svg';
+import AdvancedRules from './../../assets/image-rules-bonus.svg';
+import { ReactComponent as IconClose } from './../../assets/icon-close.svg';
 
 const Rules = () => {
   const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);

@@ -4,7 +4,7 @@ import './Choice.scss';
 const Choice = ({ type, isInteractive, onClick }) => {
   const [iconSrc, setIconSrc] = useState('');
   const loadIcon = async () => {
-    const { default: src } = await import(/* webpackMode: "lazy" */ `../assets/icon-${type}.svg`);
+    const { default: src } = await import(/* webpackMode: "lazy" */ `../../assets/icon-${type}.svg`);
     setIconSrc(src);
   }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ResultScreen.scss';
-import Choice from './Choice';
+import Choice from '../Choice/Choice';
 
 const ResultScreen = ({ gameChoices, userPick }) => {
   const [housePick, setHousePick] = useState('');

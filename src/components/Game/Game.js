@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Game.scss';
-import BgImg from './../assets/bg-pentagon.svg';
-import Choice from './Choice';
-import ResultScreen from './ResultScreen';
+import BgImg from './../../assets/bg-pentagon.svg';
+import Choice from '../Choice/Choice';
+import ResultScreen from '../ResultScreen/ResultScreen';
 
 const gameOptions = {
   advanced: ['lizard', 'paper', 'rock', 'scissors', 'spock'],

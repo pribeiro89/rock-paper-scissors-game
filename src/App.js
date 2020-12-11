@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
 import logo from './assets/logo-bonus.svg';
-import Game from './components/Game';
-import Rules from './components/Rules';
+import Game from './components/Game/Game';
+import Rules from './components/Rules/Rules';
 
 const App = () => {
   return (
