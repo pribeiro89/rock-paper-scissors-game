@@ -28,7 +28,11 @@ const Game = ({ selectedGame }) => {
         </div>
       )}
       {userPick && (
-        <ResultScreen gameChoices={gameChoices} userPick={userPick} />
+        <ResultScreen
+          gameChoices={gameChoices}
+          userPick={userPick}
+          resetGame={() => setUserPick('')}
+        />
       )}
     </div>
   )
