@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Game.scss';
 import BgImg from './../assets/bg-pentagon.svg';
-import ChoiceBtn from './ChoiceBtn';
+import Choice from './Choice';
 import ResultScreen from './ResultScreen';
 
 const gameOptions = {
@@ -18,9 +18,10 @@ const Game = ({ selectedGame }) => {
         <div className="choice-wrapper">
           <img src={BgImg} alt="pentagon" className="bg-img--pentagon" />
           {gameChoices.map(type => (
-            <ChoiceBtn
+            <Choice
               key={type}
               type={type}
+              isInteractive={true}
               onClick={() => setUserPick(type)}
             />
           ))}

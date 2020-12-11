@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ResultScreen.scss';
-import ChoiceBtn from './ChoiceBtn';
+import Choice from './Choice';
 
 const ResultScreen = ({ gameChoices, userPick }) => {
   const [housePick, setHousePick] = useState('');
@@ -19,7 +19,7 @@ const ResultScreen = ({ gameChoices, userPick }) => {
       <div className="pick-wrapper">
         <h3>You Picked</h3>
         <div className="pick">
-          <ChoiceBtn type={userPick} />
+          <Choice type={userPick} />
         </div>
       </div>
       <div className="pick-wrapper">
@@ -29,7 +29,7 @@ const ResultScreen = ({ gameChoices, userPick }) => {
             <div className="pick--empty"></div>
           )}
           {housePick && (
-            <ChoiceBtn type={housePick} />
+            <Choice type={housePick} />
           )}
         </div>
       </div>
