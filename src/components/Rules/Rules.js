@@ -20,16 +20,16 @@ const Rules = () => {
       >
         <div className="rules-modal-wrapper">
           <div className="rules-modal">
-            <div className="rules-modal-header">
-              <h2 className="rules-modal-title">Rules</h2>
+            <header className="rules-modal__header">
+              <h2 className="rules-modal__title">Rules</h2>
               <button
-                className="rules-modal-close"
+                className="rules-modal__close"
                 onClick={() => setIsRulesModalOpen(false)}
               >
                 <IconClose />
               </button>
-            </div>
-            <div className="rules-modal-content">
+            </header>
+            <div className="rules-modal__content">
               <img
                 src={AdvancedRules}
                 alt="advanced game rules"
