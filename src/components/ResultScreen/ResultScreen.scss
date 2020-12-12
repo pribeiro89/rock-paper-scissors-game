@@ -1,13 +1,22 @@
 @import "../../utils/variables";
+@import "../../utils/animations";
 
 .result {
   $root: &;
   
   display: flex;
   align-items: center;
-  justify-content: space-around;
   flex-wrap: wrap;
-  height: 100%;
+
+  &--final {
+    .pick-wrapper {
+      transform: translateX(-93px);
+
+      &--house {
+        transform: translateX(93px);
+      }
+    }
+  }
   
   .pick-wrapper {
     display: flex;
@@ -15,6 +24,15 @@
     align-items: center;
     margin: 1rem 0;
     order: 1;
+    transition: all 1s;
+
+    &:nth-of-type(1) {
+      margin-right: 2.5rem;
+    }
+
+    &:nth-of-type(2) {
+      margin-left: 2.5rem;
+    }
     
     h3 {
       color: #fff;
@@ -35,6 +53,7 @@
         margin: $choice-border-width-big;
         border-radius: 50%;
         background-color: rgba($color: #000000, $alpha: 0.15);
+        animation: jump .8s ease-in 0.2s forwards;
       }
     }
 
@@ -43,31 +62,40 @@
     }
   }
 
-  &__box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-    margin-top: 3rem;
-    order: 2;
-    
-    #{$root}__title {
-      color: #fff;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
+  &__box-wrapper {
+    position: absolute;
+    left: 50%;
 
-    .play-again {
-      color: hsl(229, 15%, 40%);
-      background-color: #fff;
-      text-transform: uppercase;
-      padding: 0.75rem 3rem;
-      border-radius: 8px;
-      letter-spacing: 0.1rem;
-      border: none;
-      box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
+    #{$root}__box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 3rem;
+      order: 2;
+      position: relative;
+      left: -50%;
+
+      #{$root}__title {
+        color: #fff;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        transform: scale(0);
+        animation: popIn .3s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+
+      .play-again {
+        color: hsl(229, 15%, 40%);
+        background-color: #fff;
+        text-transform: uppercase;
+        padding: 0.75rem 3rem;
+        border-radius: 8px;
+        letter-spacing: 0.1rem;
+        border: none;
+        box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
+        transform: scale(0);
+        animation: popIn .3s 1.2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
     }
   }
 }

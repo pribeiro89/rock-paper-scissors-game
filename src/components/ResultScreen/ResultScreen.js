@@ -63,11 +63,11 @@ const ResultScreen = ({ gameChoices, userPick, resetGame }) => {
       const gameScore = calculateScore(gameChoices, userPick, randomChoice);
       setCurrentScore(gameScore);
       setScore(score + gameScore);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return (
-    <div className="result">
+    <div className={`result ${currentScore !== null ? 'result--final' : ''}`}>
       <div className="pick-wrapper">
         <h3>You Picked</h3>
         <div className="pick">
@@ -86,15 +86,17 @@ const ResultScreen = ({ gameChoices, userPick, resetGame }) => {
         </div>
       </div>
       {currentScore !== null && (
-        <div className="result__box">
-          <h2 className="result__title">
-            {currentScore === 0 && 'You Tied'}
-            {currentScore === 1 && 'You Win'}
-            {currentScore === -1 && 'You Lose'}
-          </h2>
-          <button className="play-again" onClick={resetGame}>
-            Play Again
+        <div className="result__box-wrapper">
+          <div className="result__box">
+            <h2 className="result__title">
+              {currentScore === 0 && 'You Tied'}
+              {currentScore === 1 && 'You Win'}
+              {currentScore === -1 && 'You Lose'}
+            </h2>
+            <button className="play-again" onClick={resetGame}>
+              Play Again
           </button>
+          </div>
         </div>
       )}
     </div>
