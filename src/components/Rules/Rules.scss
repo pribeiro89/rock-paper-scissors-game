@@ -1,21 +1,27 @@
 @import '../../utils/animations';
+@import '../../utils/variables';
 
 .rules-btn {
   background-color: transparent;
   border: 2px solid hsl(216, 15%, 56%);
   border-radius: 8px;
   color: hsl(215, 25%, 87%);
+  display: block;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.60rem 1.9rem;
-  position: absolute;
   letter-spacing: 2px;
   line-height: 1;
-  margin-bottom: 2rem;
-  margin-right: 2rem;
   text-transform: uppercase;
-  right: 0;
-  bottom: 0;
+  margin: 1rem auto;
+  
+  @media screen and (min-width: $desktop) {
+    position: absolute;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 #rules-modal-container { 
