@@ -1,63 +1,66 @@
 @import "../../utils/variables";
 
 $choice-types:
-    "lizard" hsl(261, 55%, 51%) linear-gradient(180deg, hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%),
-    "paper" hsl(230, 62%, 49%) linear-gradient(180deg, hsl(230, 89%, 62%) 0%, hsl(230, 89%, 65%) 100%),
-    "rock" hsl(349, 73%, 37%) linear-gradient(180deg, hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 100%),
-    "scissors" hsl(33, 97%, 40%) linear-gradient(180deg, hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%),
-    "spock" hsl(189, 60%, 37%) linear-gradient(180deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
+"lizard" hsl(261, 55%, 51%) linear-gradient(180deg, hsl(261, 73%, 60%) 0%, hsl(261, 72%, 63%) 100%),
+"paper" hsl(230, 62%, 49%) linear-gradient(180deg, hsl(230, 89%, 62%) 0%, hsl(230, 89%, 65%) 100%),
+"rock" hsl(349, 73%, 37%) linear-gradient(180deg, hsl(349, 71%, 52%) 0%, hsl(349, 70%, 56%) 100%),
+"scissors" hsl(33, 97%, 40%) linear-gradient(180deg, hsl(39, 89%, 49%) 0%, hsl(40, 84%, 53%) 100%),
+"spock" hsl(189, 60%, 37%) linear-gradient(180deg, hsl(189, 59%, 53%) 0%, hsl(189, 58%, 57%) 100%);
 
 .choice { 
-    position: relative;
-    background: #fff;
-    background-clip: padding-box;
-    border-radius: 50%;
-
-    &:before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        border-radius: inherit;
-    }
-
-    &--button {
-        width: $choice-size;
-        height: $choice-size;
-        border: solid $choice-border-width transparent; 
-        box-shadow: inset 0 $choice-shadow-size 1px -1px rgba(185, 191, 213, 0.5);
-        
-        @each $type, $color, $gradient in $choice-types {
-            &.choice--#{$type}:before {
-                background: #{$gradient};
-                box-shadow: inset 0 -#{$choice-shadow-size} 2px -1px #{$color};
-                margin: -$choice-border-width;
-            }
-        }
-    }
+  position: relative;
+  background: #fff;
+  background-clip: padding-box;
+  border-radius: 50%;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: inherit;
+  }
+  
+  &--button,
+  &--div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $choice-size;
+    height: $choice-size;
+    border: solid $choice-border-width transparent; 
+    box-shadow: inset 0 $choice-shadow-size 1px -1px rgba(185, 191, 213, 0.5);
     
-    &--div {
-        width: $choice-size-big;
-        height: $choice-size-big;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: solid $choice-border-width-big transparent;
-        box-shadow: inset 0 $choice-shadow-size-big 1px -1px rgba(185, 191, 213, 0.5);
-        
-        @each $type, $color, $gradient in $choice-types {
-            &.choice--#{$type}:before {
-                background: #{$gradient};
-                box-shadow: inset 0 -#{$choice-shadow-size-big} 2px -1px #{$color};
-                margin: -$choice-border-width-big;
-            }
-        }
-
-        .icon {
-            width: $choice-icon-size-big;
-        }
+    @each $type, $color, $gradient in $choice-types {
+      &.choice--#{$type}:before {
+        background: #{$gradient};
+        box-shadow: inset 0 -#{$choice-shadow-size} 2px -1px #{$color};
+        margin: -$choice-border-width;
+      }
     }
+  }
+  
+  @media screen and (min-width: $desktop) {
+    &--div {
+      width: $choice-size-big;
+      height: $choice-size-big;
+      border: solid $choice-border-width-big transparent;
+      box-shadow: inset 0 $choice-shadow-size-big 1px -1px rgba(185, 191, 213, 0.5);
+      
+      @each $type, $color, $gradient in $choice-types {
+        &.choice--#{$type}:before {
+          background: #{$gradient};
+          box-shadow: inset 0 -#{$choice-shadow-size-big} 2px -1px #{$color};
+          margin: -$choice-border-width-big;
+        }
+      }
+      
+      .icon {
+        width: $choice-icon-size-big;
+      }
+    }
+  }
 }
