@@ -1,0 +1,2 @@
+(this["webpackJsonprock-paper-scissors"]=this["webpackJsonprock-paper-scissors"]||[]).push([[8],{27:function(s,c,p){"use strict";p.r(c),c.default=p.p+"static/media/icon-spock.f4d7eee8.svg"}}]);
+//# sourceMappingURL=8.7ab92c4b.chunk.js.map
